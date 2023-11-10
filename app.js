@@ -6,10 +6,12 @@ const readline = require('readline').createInterface({
 });
 
 function collectInput(floor, elevator) {
-    if (floor > numFloors) {
+    if (floor === numFloors) {
         // Exit the function if we've reached the desired number of floors.
         console.log(`Collected input for all floors...`);
+        console.log(elevator.upQueue,elevator.downQueue);
         readline.close();
+        elevator.start();
         return;
       }
     readline.question(`Enter the number of people on floor ${floor} (0 to skip): `, (numPeople) => {
@@ -49,8 +51,8 @@ function collectInput(floor, elevator) {
 }
 
 // Generate random capacity and number of floors.
-const capacity = Math.floor(Math.random() * 10) + 1; //Random capacity between 1 and 10.
-const numFloors = Math.floor(Math.random() * 10) + 2; // Random number of floors between 2 and 11.
+const capacity = 2; //Random capacity between 1 and 10.
+const numFloors = 3; // Random number of floors between 2 and 11.
 
 const elevator = new Elevator(capacity, numFloors);
 
