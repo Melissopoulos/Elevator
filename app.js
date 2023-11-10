@@ -51,12 +51,12 @@ function collectInput(floor, elevator) {
 }
 
 // Generate random capacity and number of floors.
-const capacity = 2; //Random capacity between 1 and 10.
-const numFloors = 3; // Random number of floors between 2 and 11.
+const totalCapacity = 2;//Math.floor(Math.random() * 10) + 1; Random capacity between 1 and 10.
+const numFloors = 3;//Math.floor(Math.random() * 10) + 2;  Random number of floors between 2 and 11.
 
-const elevator = new Elevator(capacity, numFloors);
+const elevator = new Elevator(totalCapacity, numFloors);
 
-console.log(`Elevator capacity: ${capacity}`);
+console.log(`Elevator capacity: ${totalCapacity}`);
 console.log(`Number of floors: ${numFloors}`);
 //Run collectInput for the ground floor
 collectInput(0, elevator)
